@@ -33,27 +33,33 @@ class App extends React.Component {
 
   render() {
     return(
-      <View style={styles.viewStyle}>
-        <Text style={styles.title}>Todo App</Text>
-        <TextInput
-          style={styles.inputStyle}
-          onChangeText={(text)=>this.setState({text})}
-          value={this.state.text}
-        />
-        <Button
-          title="Add Todo"
-          color="green"
-          onPress={this.addTodo}
-        />
-        {this.renderTodos()}
+      <View style={styles.outerView}>
+        <View style={styles.innerView}>
+          <Text style={styles.title}>Todo App</Text>
+          <TextInput
+            style={styles.inputStyle}
+            onChangeText={(text)=>this.setState({text})}
+            value={this.state.text}
+          />
+          <Button
+            title="Add Todo"
+            color="green"
+            onPress={this.addTodo}
+          />
+          {this.renderTodos()}
+        </View>
       </View>
     )
   }
 }
 
 const styles = {
-  viewStyle: {
-    flex: 1,
+  outerView: {
+    backgroundColor: "white",
+    flex: 1
+  },
+  innerView: {
+    marginTop: 60,
     alignItems: 'center',
     justifyContent: 'center',
     margin: 10
@@ -68,7 +74,7 @@ const styles = {
     fontSize: 30,
     color: 'green',
     fontWeight: 'bold'
-  }
+  },
 }
 
 export default App;
